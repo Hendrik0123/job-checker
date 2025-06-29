@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .env
 websites.txt
+job_checker.db
