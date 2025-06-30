@@ -38,7 +38,7 @@ def main():
                     result.get("old_html", ""),
                     result.get("new_html", "")
                 )
-                if summary == "Keine relevanten Änderungen":
+                if summary.strip().lower() == "keine relevanten änderungen":
                     continue
                 else:
                     send_email(
