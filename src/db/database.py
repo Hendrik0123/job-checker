@@ -34,6 +34,7 @@ def load_websites_from_file():
             urls = [line.strip() for line in f if line.strip()]
         for url in urls:
             add_website(url)
+            print(f"{url} geprüft.")
     except FileNotFoundError:
         print(f"{WEBSITES_FILE} nicht gefunden. Bitte Datei anlegen.")
 

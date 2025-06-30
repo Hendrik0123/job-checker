@@ -13,7 +13,7 @@ model = genai.GenerativeModel("gemini-2.0-flash")
 
 def summarize_change(model, url, old_html, new_html):
     prompt = (
-        f"Die folgende Webseite hat sich geändert: {url}\n"
+        f"Deine Aufgabe ist es Änderungen auf Internetseiten für Stellenangebote zu finden und für Hendrik Becker zusammenzufassen, wenn sie für ihn als Sozialarbeiter relevant sein könnten. Die folgende Webseite hat sich geändert: {url}\n"
         "Fasse die wichtigsten inhaltlichen Änderungen für eine E-Mail verständlich zusammen.\n"
         "Vorher:\n"
         f"{old_html}\n"
