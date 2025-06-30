@@ -1,8 +1,9 @@
 import sqlite3
 import datetime
+import os
 
 DATABASE_NAME = 'job_checker.db'
-WEBSITES_FILE = 'websites.txt'  # Neue Konstante
+WEBSITES_FILE = "/home/hendrik/job-checker/websites.txt"
 
 def connect_db():
     conn = sqlite3.connect(DATABASE_NAME)

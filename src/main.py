@@ -19,7 +19,7 @@ def summarize_change(model, url, old_html, new_html):
         f"{old_html}\n"
         "Nachher:\n"
         f"{new_html}\n"
-        "Bitte fasse die Änderungen in wenigen Sätzen zusammen."
+        "Bitte fasse die Änderungen in wenigen Sätzen zusammen. Falls keine relevanten Änderungen vorgenommen wurden, antworte nur mit 'Keine relevanten Änderungen'.\n"
     )
     response = model.generate_content(prompt)
     return response.text if hasattr(response, "text") else str(response)
@@ -38,10 +38,13 @@ def main():
                     result.get("old_html", ""),
                     result.get("new_html", "")
                 )
-                send_email(
-                    subject=f"Änderung erkannt auf {url}",
-                    body=summary
-                )
+                if summary == "Keine relevanten Änderungen":
+                    continue
+                else:
+                    send_email(
+                        subject=f"Änderung erkannt auf {url}",
+                        body=summary
+                    )
         print("jetzt wird gewartet :)")
         time.sleep(CHECK_INTERVAL)
 
