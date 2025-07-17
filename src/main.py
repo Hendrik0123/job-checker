@@ -13,13 +13,13 @@ model = genai.GenerativeModel("gemini-2.0-flash")
 
 def summarize_change(model, url, old_html, new_html):
     prompt = (
-        f"Deine Aufgabe ist es Änderungen auf Internetseiten für Stellenangebote zu finden und für Hendrik Becker zusammenzufassen, wenn sie für ihn als Sozialarbeiter relevant sein könnten. Die folgende Webseite hat sich geändert: {url}\n"
+        f"Deine Aufgabe ist es Änderungen auf Internetseiten für Stellenangebote zu finden und für Hendrik Becker zusammenzufassen. Er ist Sozialarbeiter mit Stärken in außerschulischer Jugendarbeit, Medienpädagogig (vor allem im Bezug auf 3D-Druck), Datenverarbeitung und Prozessoptimierung mit Python & Excel sowie Digitalisierung. Die ausgeschriebene Stelle sollte einen Stellenumfang von mindestens 70% oder 28 Wochenstunden umfassen. Die folgende Webseite hat sich geändert: {url}\n"
         "Fasse die wichtigsten inhaltlichen Änderungen für eine E-Mail verständlich zusammen.\n"
         "Vorher:\n"
         f"{old_html}\n"
         "Nachher:\n"
         f"{new_html}\n"
-        "Bitte fasse die Änderungen in wenigen Sätzen zusammen. Falls keine relevanten Änderungen vorgenommen wurden, antworte nur mit 'Keine relevanten Änderungen'.\n"
+        "Bitte fasse die Änderungen in wenigen Sätzen zusammen. Stelle sicher dass bei relevanten Stellenangeboten ein entsprechender Link zu dem Stellenangebot in der Zusammenfassung enthalten ist. Falls keine relevanten Änderungen vorgenommen wurden, antworte nur mit 'Keine relevanten Änderungen'.\n"
     )
     response = model.generate_content(prompt)
     return response.text if hasattr(response, "text") else str(response)
