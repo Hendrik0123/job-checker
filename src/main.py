@@ -13,7 +13,7 @@ model = genai.GenerativeModel("gemini-2.0-flash")
 
 def summarize_change(model, url, old_html, new_html):
     prompt = (
-        f"Deine Aufgabe ist es Änderungen auf Internetseiten für Stellenangebote zu finden und für Hendrik Becker zusammenzufassen. Er ist Sozialarbeiter mit Stärken in außerschulischer Jugendarbeit, Medienpädagogig (vor allem im Bezug auf 3D-Druck), Datenverarbeitung und Prozessoptimierung mit Python & Excel sowie Digitalisierung. Die ausgeschriebene Stelle sollte einen Stellenumfang von mindestens 70% oder 28 Wochenstunden umfassen. Die folgende Webseite hat sich geändert: {url}\n"
+        f"Deine Aufgabe ist es Änderungen auf Internetseiten für Stellenangebote zu finden und für Hendrik Becker zusammenzufassen. Aber wirklich nur wenn sie relevant sind und sich auf neue Stellenausschreibungen beziehen. Er ist Sozialarbeiter mit Stärken in außerschulischer Jugendarbeit, Medienpädagogig (vor allem im Bezug auf 3D-Druck), Datenverarbeitung und Prozessoptimierung mit Python & Excel sowie Digitalisierung. Die ausgeschriebene Stelle sollte einen Stellenumfang von mindestens 70% oder 28 Wochenstunden umfassen. Die folgende Webseite hat sich geändert: {url}\n"
         "Fasse die wichtigsten inhaltlichen Änderungen für eine E-Mail verständlich zusammen.\n"
         "Vorher:\n"
         f"{old_html}\n"
